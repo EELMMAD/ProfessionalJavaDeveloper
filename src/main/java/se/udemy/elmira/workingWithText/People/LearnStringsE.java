@@ -9,3 +9,4 @@ public class LearnStringsE {
         System.out.println(myText.charAt(0));
     }
 }
+
