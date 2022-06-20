@@ -1,6 +1,6 @@
 package se.udemy.elmira.workingWithText.People;
 
-public class LearningStringsF {
+public class LearnStringsF {
     public static void main(String[] args) {
 
         //compareTo();
