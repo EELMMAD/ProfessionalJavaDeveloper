@@ -1,4 +1,4 @@
-package se.udemy.elmira.workingWithText.People.stringConcatenation;
+package se.udemy.elmira.workingWithText.stringConcatenation;
 
 public class LearnStrings {
     public static void main(String[] args) {
