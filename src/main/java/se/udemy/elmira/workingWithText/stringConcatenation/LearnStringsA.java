@@ -14,7 +14,7 @@ public class LearnStringsA {
         System.out.println("---------");
         String firstText = "for";
         String secondText = "score";
-        StringBuilder builder = new StringBuilder(firstText.length() + secondText.length())
+        StringBuilder builder = new StringBuilder(firstText.length() + secondText.length())//supply exact length
                 .append(firstText)
                 .append(secondText);
         System.out.println(builder.toString());
