@@ -26,5 +26,14 @@ public class LearnStringsB {
         String text7 = "apple";
         String text8 = text7.substring(0, 1).toUpperCase().concat(text7.substring(1));
         System.out.println(text8);
+        
+        System.out.println("---------");
+        String text9 = "apple";
+        String firstPart = text9.substring(0, 1);
+        String secondPart = text9.substring(1);
+        String text10 = firstPart.toUpperCase().concat(secondPart);
+        System.out.println(text10);
+        
+        
     }
 }
