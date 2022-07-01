@@ -1,6 +1,6 @@
 package se.udemy.elmira.workingWithText.stringConcatenation;
 
-public class LearningStringsD {
+public class LearnStringsD {
     public static void main(String[] args) {
         String fileName = "myFile.txt";
         System.out.println(fileName.endsWith("txt")); //endsWith()--> returns boolean
