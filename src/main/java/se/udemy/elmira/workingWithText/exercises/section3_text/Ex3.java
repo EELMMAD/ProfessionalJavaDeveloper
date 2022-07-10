@@ -16,3 +16,10 @@ public class Ex3 {
         //System.out.printf("'%s'%n", userInput);
     }
 }
+
+class A{
+    public static void main(String[][] args) {
+        System.out.println(args[0][1]);
+    }
+}
+
