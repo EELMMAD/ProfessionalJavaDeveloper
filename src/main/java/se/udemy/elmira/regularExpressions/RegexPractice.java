@@ -69,6 +69,55 @@ public class RegexPractice {
         System.out.println("321-333-7652".matches("\\d\\d\\d")); //false
         System.out.println("321-333-7652".matches("\\d\\d\\d-\\d\\d\\d-\\d\\d\\d\\d"));  //true
 
+        //quantifier in regular expressions
+        //how many times we want a particular pattern or expression or character class to match.
+        System.out.println("321-333-7652".matches("\\d{3}-\\d{3}-\\d{4}"));   //{number of digits} //true
+        System.out.println("1-321-333-7652".matches("\\d{3}-\\d{3}-\\d{4}")); //true   //a leading single digit, followed by a hyphen.
+        System.out.println("321.333.7652".matches("\\d{3}-\\d{3}-\\d{4}"));  //false
+                               //. periods                     //- hyphens
+
+        // hyphen or a period [-.]   //Either or
+        System.out.println("321-333-7652".matches("\\d{3}[-.]\\d{3}[-.]\\d{4}")); //true   //- hyphen
+        System.out.println("321.333.7652".matches("\\d{3}[-.]\\d{3}[-.]\\d{4}")); //true   //. period
+
+        System.out.println("321,333,7652".matches("\\d{3}[-.]\\d{3}[-.]\\d{4}")); //comma //false
+        System.out.println("321,333,7652".matches("\\d{3}[-.,]\\d{3}[-.,]\\d{4}")); //comma added  //true
+
+        //Miv and Match
+        // you could mix and match as well, so I can have a hyphen in
+        //the first place in a common the second place and this should work.
+        System.out.println("321-333,7652".matches("\\d{3}[-.,]\\d{3}[-.,]\\d{4}"));   //true
+
+        //Space
+        System.out.println("321 333 7652".matches("\\d{3}[-., ]\\d{3}[-., ]\\d{4}")); //puts space inside brackets
+                              //space                          //space       //space         //true
+
+        // \s --> space
+        System.out.println("321 333 7652".matches("\\d{3}[-.,\\s]\\d{3}[-.,\\s]\\d{4}"));  //true
+        System.out.println("321,333 7652".matches("\\d{3}[-.,\\s]\\d{3}[-.,\\s]\\d{4}"));  //true
+
+        //too many spaces    arbitrary number of spaces
+        // false and the reason -> because we're only expecting up to one space or period or a comma
+        System.out.println("321     333 7652".matches("\\d{3}[-.,\\s]\\d{3}[-.,\\s]\\d{4}"));  //false
+
+
+        // + symbol
+        //We can do a plus symbol here, so that means one or more of the character class that is in front of
+        //that plus symbol in this case, just as this means three of whatever is in front of it.
+        System.out.println("321     333 7652".matches("\\d{3}[-.,\\s]+\\d{3}[-.,\\s]+\\d{4}")); //true
+
+        System.out.println("321 333 7652".matches("\\d{3}[-.,\\s]+\\d{3}[-.,\\s]+\\d{4}")); //even if for one space
+        System.out.println("3213337652".matches("//d{3}[-.,\\s]+\\d{3}[-.,\\s]+\\d{4}")); //false //no space
+
+        // + --> one or more space
+        // * --> zero or more space
+
+
+        //zero space(no space) or more
+        //zero or more of the characters proceeding.
+        System.out.println("3213337652".matches("//d{3}[-.,\\s]*\\d{3}[-.,\\s]*\\d{4}")); //true
+
+
     }
 }
 
