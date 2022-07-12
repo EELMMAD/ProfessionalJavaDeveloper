@@ -107,17 +107,75 @@ public class RegexPractice {
         System.out.println("321     333 7652".matches("\\d{3}[-.,\\s]+\\d{3}[-.,\\s]+\\d{4}")); //true
 
         System.out.println("321 333 7652".matches("\\d{3}[-.,\\s]+\\d{3}[-.,\\s]+\\d{4}")); //even if for one space
-        System.out.println("3213337652".matches("//d{3}[-.,\\s]+\\d{3}[-.,\\s]+\\d{4}")); //false //no space
+        System.out.println("3213337652".matches("\\d{3}[-.,\\s]+\\d{3}[-.,\\s]+\\d{4}")); //false //no space
 
         // + --> one or more space
         // * --> zero or more space
+        // ? --> zero or just one (one or non)  //Not more than one
 
 
         //zero space(no space) or more
         //zero or more of the characters proceeding.
-        System.out.println("3213337652".matches("//d{3}[-.,\\s]*\\d{3}[-.,\\s]*\\d{4}")); //true
+        System.out.println("3213337652".matches("\\d{3}[-.,\\s]*\\d{3}[-.,\\s]*\\d{4}")); //true
+        System.out.println("321 3337652".matches("\\d{3}[-.,\\s]*\\d{3}[-.,\\s]*\\d{4}")); //true
+        System.out.println("321 333        7652".matches("\\d{3}[-.,\\s]*\\d{3}[-.,\\s]*\\d{4}")); //true
+        System.out.println("321 333z7652".matches("\\d{3}[-.,\\s]*\\d{3}[-.,\\s]*\\d{4}")); //true
 
 
+        // ? --> zero or just one (one or non)  //Not more than one
+        System.out.println("321-333-7652".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{4}")); //true
+        System.out.println("3213337652".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{4}"));   //true
+        System.out.println("321333   7652".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{4}"));  //false
+                                 //two spaces
+
+        System.out.println("321333 7652".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{4}"));  //true
+                               //one spaces
+
+        //range of numbers
+        System.out.println("321333 652".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{3,4}"));  //true
+                                                                                     //three or four
+
+        System.out.println("321333 2".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{3,4}"));  //false
+                               //only one
+
+        System.out.println("321333 222222".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{3,4}"));  //false
+
+        System.out.println("321333 22".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{3,4}"));  //false
+
+
+        //comma here and not specify that second number.
+        //So this is saying it has to be at least three digits long.
+        //But there's no upper limit to how long it can be.
+        System.out.println("321 333 6523".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{3,}"));
+                                                                                          //only comma, not upper limit
+
+        System.out.println("321 333 65237777777".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{3,}"));//true
+
+        System.out.println("321 333 65".matches("\\d{3}[-.,\\s]?\\d{3}[-.,\\s]*\\d{3,}")); //false
+
+        //reduce the duplicate code
+        System.out.println("321 333 2365".matches("(\\d{3}[-.,\\s]){2}\\d{4}"));  //true
+                                                         //inside the (), {two times}
+
+        System.out.println("333 2365".matches("(\\d{3}[-.,\\s]?){2}\\d{4}")); //false
+
+        System.out.println("333 2365".matches("(\\d{3}[-.,\\s]?){1,2}\\d{4}"));  //{1,2}  //true
+                                                //inside the (), {once or two times}
+
+        System.out.println("321.333.2365".matches("(\\d{3}[-.,\\s]?){1,2}\\d{4}")); //true
+        System.out.println("333.2365".matches("(\\d{3}[-.,\\s]?){1,2}\\d{4}")); //true
+
+        //One more number in front
+        System.out.println("1.232333.2365".matches("\\d[-.,\\s]?(\\d{3}[-.,\\s]?){1,2}\\d{4}")); //true
+
+        System.out.println("1.232333.2365".matches("(\\d[-.,\\s]?)?(\\d{3}[-.,\\s]?){1,2}\\d{4}")); //true
+        System.out.println("232333.2365".matches("(\\d[-.,\\s]?)?(\\d{3}[-.,\\s]?){1,2}\\d{4}")); //true
+
+        //You don't have to have anything there.
+        //But if you do put something there in front of the 10 digits, it has to be a one,
+        System.out.println("1.232333.2365".matches("(1[-.,\\s]?)?(\\d{3}[-.,\\s]?){1,2}\\d{4}")); //true  must be only one
+        System.out.println("6.232333.2365".matches("(1[-.,\\s]?)?(\\d{3}[-.,\\s]?){1,2}\\d{4}")); //false
+        System.out.println("232333.2365".matches("(1[-.,\\s]?)?(\\d{3}[-.,\\s]?){1,2}\\d{4}")); //true
     }
 }
 
