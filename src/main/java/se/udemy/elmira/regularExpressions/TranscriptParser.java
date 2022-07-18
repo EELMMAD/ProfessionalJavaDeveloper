@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class TranscriptParser {
     public static void main(String[] args) {
+        /*
         String transcript = """
                 Student Number:	1234598872			Grade:		11
                 Birthdate:		01/02/2000			Gender:	M
@@ -49,5 +50,7 @@ public class TranscriptParser {
             System.out.println(mat.group("weightedGPA"));
             //System.out.println(mat.group("unweightedGPA"));
         }
+
+         */
     }
 }
