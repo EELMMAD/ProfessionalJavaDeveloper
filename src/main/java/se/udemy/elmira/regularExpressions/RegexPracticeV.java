@@ -14,10 +14,12 @@ public class RegexPracticeV {
         //And so that tells the engine to not remember or to not capture
         // that group that is inside the parentheses.
 
+        //Pattern.COMMENTS  --> //ignore spaces - white space.
+
         String regex = "(?:(?<countryCode>\\d{1,2})[-.,\\s]?)?(?:(?<areaCode>\\d{3})[-.,\\s]?)(?:(?<exchange>\\d{3})[-.,\\s]?)(?<lineNumber>\\d{4})";
         String phoneNumber = "12.232.333.2365";
 
-        Pattern pat = Pattern.compile(regex, Pattern.COMMENTS);  //ignore spaces - white space.
+        Pattern pat = Pattern.compile(regex, Pattern.COMMENTS | Pattern.DOTALL | Pattern.CANON_EQ | Pattern.CASE_INSENSITIVE);
         Matcher mat = pat.matcher(phoneNumber);
 
         if (mat.matches()) {
