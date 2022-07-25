@@ -27,8 +27,10 @@ public class CompoundInterestCalcI{
         DecimalFormat df = new DecimalFormat("$#,###.00;$(#)");  //  positive;Negative
         DecimalFormat pf = new DecimalFormat("#%");
         BigDecimal balance = CompoundInterestCalc.calculate("$25,300", "8%", 10, "$7,500");
-        System.out.println(df.format(balance.negate())); //$(163,270,02)
-        System.out.println(pf.format(.08)); //8%
+       // System.out.println(df.format(balance.negate())); //$(163,270,02)
+       // System.out.println(pf.format(.08)); //8%
+       String myMoney = String.format("$%, (.2f%n", balance.negate()); //  , flag
+        System.out.println(myMoney);
     }
 }
 
