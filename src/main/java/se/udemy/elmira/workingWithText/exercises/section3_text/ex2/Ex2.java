@@ -1,4 +1,4 @@
-package se.udemy.elmira.workingWithText.exercises.section3_text;
+package se.udemy.elmira.workingWithText.exercises.section3_text.ex2;
 
 public class Ex2 {
     public static void main(String[] args) {
