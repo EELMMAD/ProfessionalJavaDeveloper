@@ -10,24 +10,25 @@ public class Ex5 {
     it’s called it generates 3, it should return 8 from the second call - for example.
      */
 
-    private int sum = 0;
+        private int sum = 0;
 
-    public int next() {
-        this.sum += new Random().nextInt(10);
-        return this.sum;
+        public int next() {
+            this.sum += new Random().nextInt(10);
+            return this.sum;
+        }
+
+        public static void main(String[] args) {
+            Ex5 exercise5 = new Ex5();
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+            System.out.println(exercise5.next());
+        }
     }
 
-    public static void main(String[] args) {
-        Ex5 exercise5 = new Ex5();
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-        System.out.println(exercise5.next());
-    }
-}
