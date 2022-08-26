@@ -1,6 +1,17 @@
 package se.udemy.elmira.controlFlow.exercise;
 
 public class Ex4 {
+    /*
+    4. Use an array of days of the week, enhanced ‘for-loop’ and if/else to create the following
+output.
+We eat pot roast on Sunday
+We eat spaghetti on Monday
+We eat tacos on Tuesday
+We eat chicken on Wednesday
+We eat meatloaf on Thursday
+We eat hamburgers on Friday
+We eat pizza on Saturday
+     */
     public static void main(String[] args) {
         String[] days = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         for (String day : days) {
